@@ -81,7 +81,6 @@
                 </label>
             </div>
         </div>
-        @include('modal.modal_produk')
         <!-- modal create -->
         <input type="checkbox" id="create-modal" class="modal-toggle" />
         <div class="modal">

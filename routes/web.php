@@ -4,11 +4,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\MarketController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Dashboard\ProdukController;
 use App\Http\Controllers\Dashboard\ProfilController;
 use App\Http\Controllers\Dashboard\PesananController;
 use App\Http\Controllers\Dashboard\CategoryController;
 use App\Http\Controllers\Dashboard\BelanjaanController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,12 +35,9 @@ Route::middleware('guest')->group(function () {
     Route::get('/auth/google', [AuthController::class, 'google'])->name('user.auth.login');
     Route::get('/auth/google/callback', [AuthController::class, 'HandleProviderCallback'])->name('auth.google.callback');
 
+    Route::get('login/admin', [AuthenticatedSessionController::class, 'create'])->name('login');
+
 });
-
-
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -58,4 +57,6 @@ Route::middleware('auth')->group(function () {
             Route::resource('category', CategoryController::class);
         });
     });
+
+    Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 });

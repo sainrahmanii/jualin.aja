@@ -11,21 +11,21 @@
                 @auth
                 <h1>Halo, <b>{{Auth::user()->name}}</b></h1>
                     <div class="dropdown dropdown-hover dropdown-bottom dropdown-end">
-                        <button><img src="{{Auth::user()->avatar}}" alt="avatar" class="w-12 rounded-full"></button>
+                        <img src="{{Auth::user()->avatar}}" alt="avatar" class="w-12 rounded-full cursor-pointer">
                         <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
                             <li><a href="{{ route('dashboard.dashboard') }}">Dashboard</a></li>
                             <li>
-                                {{-- <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit()">Keluar
+                                <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit()">Keluar
                                     <form method="POST" action="{{ route('logout') }}" id="logout-form">
                                         @csrf
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                     </form>
-                                </a> --}}
+                                </a>
                             </li>
                         </ul>
                     </div>
                 @else
-                <a href="{{ route('sign-in') }}"><button class="rounded-full border border-primary text-primary font-bold py-2 px-9">Masuk</button></a>
+                    <a href="{{ route('sign-in') }}"><button class="rounded-full border border-primary text-primary font-bold py-2 px-9">Masuk</button></a>
                     <a href="{{ route('sign-up') }}"><button class="rounded-full bg-primary hover:bg-third text-white py-2 px-9 font-bold hover:drop-shadow-xl">Daftar</button></a>
                 @endauth
             </div>
@@ -44,16 +44,24 @@
 
     <!-- mobile nav -->
     <div class="hidden mobile-nav justify-center pb-5">
-        <a href="{{ route('sign-in') }}" class="block py-2 pl-32"><button class="border border-primary rounded-full py-2 px-20 font-bold">Masuk</button></a>
-        <a href="{{ route('sign-up') }}" class="block py-2 pl-32"><button class="rounded-full bg-primary text-white py-2 px-20 font-bold">Daftar</button></a>
 
-        <!-- <div class="flex items-center justify-center">
-            <a href="{{ route('dashboard.dashboard') }}" class="flex items-center">
-                <img src="{{ asset('assets/images/sain.png') }}" alt="avatar" class="w-16 rounded-full pr-3">
-                <h1>Halo, <b>Husain Rahmani</b></h1>
+        @auth
+            <div class="flex items-center justify-center">
+                <a href="{{ route('dashboard.dashboard') }}" class="flex items-center">
+                    <img src="{{ Auth::user()->avatar }}" alt="avatar" class="w-16 rounded-full pr-3">
+                    <h1>Halo, <b>{{ Auth::user()->name }}</b></h1>
+                </a>
+            </div>
+            <a href="#" class="flex justify-center mx-auto bg-primary rounded-full py-2 w-1/2 mt-3" onclick="event.preventDefault(); document.getElementById('logout-form').submit()">Keluar
+                <form method="POST" action="{{ route('logout') }}" id="logout-form">
+                    @csrf
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                </form>
             </a>
-        </div>
-        <a href="{{ route('dashboard.dashboard') }}" class="flex justify-center mx-auto bg-primary rounded-full py-2 w-1/2 mt-3">Keluar</a> -->
+        @else
+            <a href="{{ route('sign-in') }}" class="block py-2 pl-32"><button class="border border-primary rounded-full py-2 px-20 font-bold">Masuk</button></a>
+            <a href="{{ route('sign-up') }}" class="block py-2 pl-32"><button class="rounded-full bg-primary text-white py-2 px-20 font-bold">Daftar</button></a>
+        @endauth
 
     </div>
 
