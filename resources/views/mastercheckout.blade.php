@@ -21,6 +21,9 @@
       href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
     />
 
+    {{-- live wire --}}
+    @livewireStyles
+
   </head>
   <body>
 
@@ -28,7 +31,8 @@
     @yield('content')
     @include('includes.footer')
 
-    <!-- livexire -->
+    {{-- livewire --}}
     @livewireScripts
+
   </body>
 </html>

@@ -50,8 +50,8 @@ class AuthController extends Controller
     {
         $callback = Socialite::driver('google')->stateless()->user();
         $data = [
-            'name'  => $callback->getName(),
-            'email' => $callback->getEmail(),
+            'name'      => $callback->getName(),
+            'email'     => $callback->getEmail(),
             'avatar'    => $callback->getAvatar()
         ];
 
