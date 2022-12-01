@@ -35,7 +35,7 @@ class AuthController extends Controller
         }elseif ($hour >= 19 && $hour <= 4){
             $salam = "Malam";
         }else{
-            $salam = "Datang";
+            $salam = "Malam";
         }
 
         return view('market.dashboard', compact('salam'));

@@ -34,7 +34,7 @@
                                         alt="gambar produk" class="w-32 mx-auto">
                                 </td>
                                 <td class="p-3 whitespace-nowrap flex items-center space-x-1 justify-center">
-                                    <label wire:click="show-products({{ $item->id }})">
+                                    <label wire:click="show-products({{ $item->id }})" for="show-modal">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                             stroke-width="1.5" stroke="white"
                                             class="w-10 h-10 cursor-pointer bg-teal-900 hover:bg-teal-500 px-2 py-2 transition delay-300 rounded-lg">
@@ -45,7 +45,7 @@
                                         </svg>
                                     </label>
 
-                                    <label wire:click="EditProducts({{ $item->id }})">
+                                    <label wire:click="EditProducts({{ $item->id }})" for="edit-modal">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                             stroke-width="1.5" stroke="white"
                                             class="w-10 h-10 bg-indigo-900 hover:bg-indigo-500 px-2 py-2 transition delay-300 rounded-lg cursor-pointer">
