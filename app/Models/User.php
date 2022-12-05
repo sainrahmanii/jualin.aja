@@ -21,6 +21,13 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'avatar',
+        'nama_bank',
+        'nomor_whatsapp',
+        'address',
+        'is_admin',
+        'nama_bank',
+        'nomor_rekening'
     ];
 
     /**

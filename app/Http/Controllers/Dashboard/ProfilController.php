@@ -28,7 +28,7 @@ class ProfilController extends Controller
         }elseif ($hour >= 19 && $hour <= 4){
             $salam = "Malam";
         }else{
-            $salam = "Datang";
+            $salam = "Malam";
         }
 
         return view('market.dashboard.profil', compact('salam'));
