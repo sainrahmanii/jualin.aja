@@ -30,7 +30,7 @@
                     @auth
                         <h1>Halo, <b>{{ Auth::user()->name }}</b></h1>
                         <div class="dropdown dropdown-hover dropdown-bottom dropdown-end">
-                            <button><img src="{{ Auth::user()->avatar }}" alt="avatar" class="w-12 rounded-full"></button>
+                            <img src="{{ Auth::user()->avatar }}" alt="avatar" class="w-12 rounded-full cursor-pointer">
                             <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
                                 <li><a href="{{ route('dashboard.dashboard') }}">Dashboard</a></li>
                                 <li>
@@ -51,7 +51,6 @@
                                 class="rounded-full bg-primary hover:bg-third text-white py-2 px-9 font-bold hover:drop-shadow-xl">Daftar</button></a>
                     @endauth
                 </div>
-
             </div>
 
             <!-- button mobile -->
@@ -65,7 +64,6 @@
                 </button>
             </div>
         </div>
-
     </div>
 
     <!-- mobile nav -->
